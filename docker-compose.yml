@@ -11,10 +11,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik/traefik.toml:/traefik.toml
   todolist:
-    container_name: todolist
     build: .
-    ports:
-      - 8081:8080
+    deploy:
+      replicas: 3
     labels:
       - "traefik.http.routers.todolist.rule=PathPrefix(`/app`)"
       - "traefik.http.middlewares.todolist.stripPrefix.prefixes=/app"
