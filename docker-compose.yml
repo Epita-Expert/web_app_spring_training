@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  todolist:
+    container_name: todolist
+    build : .
+    ports:
+      - 8081:8080
